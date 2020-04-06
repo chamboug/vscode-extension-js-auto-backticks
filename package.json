@@ -3,7 +3,8 @@
 	"displayName": "Javascript Auto Backticks",
     "description": "Automatically converts single or double quotes to backticks when needed.",
     "publisher": "chamboug",
-	"version": "0.0.1",
+    "version": "0.0.1",
+    "repository": "https://github.com/chamboug/vscode-extension-js-auto-backticks",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
