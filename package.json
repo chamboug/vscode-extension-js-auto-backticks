@@ -2,6 +2,7 @@
 	"name": "js-auto-backticks",
 	"displayName": "Javascript Auto Backticks",
     "description": "Automatically converts single or double quotes to backticks when needed.",
+    "publisher": "chamboug",
 	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.43.0"
@@ -10,9 +11,9 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onLanguage:js",
-		"onLanguage:vue",
-		"onLanguage:typescript"
+		"onLanguage:javascript",
+		"onLanguage:typescript",
+		"onLanguage:vue"
 	],
 	"main": "./extension.js",
 	"contributes": {
