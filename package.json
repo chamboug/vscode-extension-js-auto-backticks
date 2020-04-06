@@ -1,8 +1,8 @@
 {
 	"name": "js-auto-backticks",
 	"displayName": "Javascript Auto Backticks",
-	"description": "Automatically converts single or double quotes to backticks when needed.",
-	"version": "1.0.0",
+    "description": "Automatically converts single or double quotes to backticks when needed.",
+	"version": "0.0.1",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
