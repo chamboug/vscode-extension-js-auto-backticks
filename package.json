@@ -29,7 +29,7 @@
 		"@types/node": "^12.11.7",
 		"@types/vscode": "^1.43.0",
 		"babel-eslint": "^10.1.0",
-		"eslint": "^6.6.0"
+		"eslint": "6.8.0"
 	},
 	"dependencies": {
 		"@phenomnomnominal/tsquery": "5.0.0",
