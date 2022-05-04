@@ -1,10 +1,10 @@
 {
 	"name": "js-auto-backticks",
 	"displayName": "Javascript Auto Backticks",
-    "description": "Automatically converts single or double quotes to backticks when needed.",
-    "publisher": "chamboug",
-    "version": "0.0.1",
-    "repository": "https://github.com/chamboug/vscode-extension-js-auto-backticks",
+	"description": "Automatically converts single or double quotes to backticks when needed.",
+	"publisher": "chamboug",
+	"version": "0.0.1",
+	"repository": "https://github.com/chamboug/vscode-extension-js-auto-backticks",
 	"engines": {
 		"vscode": "^1.43.0"
 	},
@@ -28,7 +28,10 @@
 		"@types/node": "^12.11.7",
 		"@types/vscode": "^1.43.0",
 		"babel-eslint": "^10.1.0",
-		"eslint": "^6.6.0",
-		"typescript": "^3.6.4"
+		"eslint": "^6.6.0"
+	},
+	"dependencies": {
+		"@phenomnomnominal/tsquery": "5.0.0",
+		"typescript": "4.6.4"
 	}
 }
