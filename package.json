@@ -21,6 +21,7 @@
 		"commands": []
 	},
 	"scripts": {
+		"postversion": "git push --follow-tags",
 		"lint": "eslint src/**/*.js",
 		"lintFix": "eslint src/**/*.js --fix"
 	},
