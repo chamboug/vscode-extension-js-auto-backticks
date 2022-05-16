@@ -63,7 +63,9 @@ module.exports = class EventsWatcher {
                             [firstQuoteRange, lastQuoteRange].forEach((range) => {
                                 editBuilder.replace(range, "`");
                             });
-                            editBuilder.insert(new vscode.Position(lineIndex, changeStart.character + 1), "}");
+                            if (event.contentChanges[0].text.slice(-1) !== "}") {
+                                editBuilder.insert(new vscode.Position(lineIndex, changeStart.character + 1), "}");
+                            }
                         })
                         .then(() => {
                             const newPosition = new vscode.Position(changeStart.line, changeStart.character + 1);
@@ -87,8 +89,9 @@ module.exports = class EventsWatcher {
             // If no changes, then return
             return false;
         }
-        if (contentChanges[0].text !== "{") {
-            // Only the { char will trigger verification
+        // Only "{" and "{}" (VSCode might automatically add the closing bracket, even in non template strings)
+        // trigger verification
+        if (["{", "{}"].every((token) => contentChanges[0].text !== token)) {
             return false;
         }
         return true;

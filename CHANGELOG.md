@@ -2,6 +2,14 @@
 
 All notable changes to the extension will be documented in this file.
 
+## [0.1.2] - 2022-05-16
+
+-   Improve trigger system
+
+## [0.1.1] - 2022-05-04
+
+-   Added extension icon
+
 ## [0.1.0] - 2022-05-04
 
 -   Added LICENSE
