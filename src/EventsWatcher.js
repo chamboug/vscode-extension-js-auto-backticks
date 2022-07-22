@@ -81,7 +81,7 @@ module.exports = class EventsWatcher {
         );
     };
     shouldCheckForBackticks(document, contentChanges) {
-        if (!["javascript", "typescript", "vue"].includes(document.languageId)) {
+        if (!["javascript", "typescript", "vue", "javascriptreact", "typescriptreact"].includes(document.languageId)) {
             return false;
         }
         if (!document.isDirty || document.isClosed) {
