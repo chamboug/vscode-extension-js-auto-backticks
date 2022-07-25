@@ -19,6 +19,8 @@
 	"activationEvents": [
 		"onLanguage:javascript",
 		"onLanguage:typescript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescriptreact",
 		"onLanguage:vue"
 	],
 	"main": "./extension.js",
