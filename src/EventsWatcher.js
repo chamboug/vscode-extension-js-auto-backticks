@@ -15,8 +15,9 @@ module.exports = class EventsWatcher {
                 const changeStart = event.contentChanges[0].range.start;
                 const lineIndex = changeStart.line;
                 const line = event.document.lineAt(lineIndex);
+                const addedText = event.contentChanges[0].text;
 
-                if (line.text.charAt(changeStart.character - 1) !== "$") {
+                if (!this.shouldTurnIntoTemplateString(addedText, line, changeStart)) {
                     return;
                 }
 
@@ -63,12 +64,24 @@ module.exports = class EventsWatcher {
                             [firstQuoteRange, lastQuoteRange].forEach((range) => {
                                 editBuilder.replace(range, "`");
                             });
-                            if (event.contentChanges[0].text.slice(-1) !== "}") {
+                            if (!addedText.includes("}")) {
                                 editBuilder.insert(new vscode.Position(lineIndex, changeStart.character + 1), "}");
                             }
                         })
                         .then(() => {
-                            const newPosition = new vscode.Position(changeStart.line, changeStart.character + 1);
+                            let characterIndex = changeStart.character;
+                            /**
+                             * In case VSCode automatically adds a closing bracket, the cursor must be placed between 
+                             * brackets, so adding addedText.length would not work.
+                             */
+                            if (addedText === "{}") {
+                                characterIndex += 1;
+                            } else {
+                                characterIndex += addedText.length
+                            }
+
+
+                            const newPosition = new vscode.Position(changeStart.line, characterIndex);
                             const newSelection = new vscode.Selection(newPosition, newPosition);
                             editor.selection = newSelection;
                         });
@@ -80,6 +93,13 @@ module.exports = class EventsWatcher {
             this.context.subscriptions
         );
     };
+
+    /**
+     * Determine whether or not current changes should trigger quotes check.
+     * @param {vscode.TextDocument} document 
+     * @param {vscode.TextDocumentContentChangeEvent[]} contentChanges 
+     * @returns {boolean}
+     */
     shouldCheckForBackticks(document, contentChanges) {
         if (!["javascript", "typescript", "vue", "javascriptreact", "typescriptreact"].includes(document.languageId)) {
             return false;
@@ -92,11 +112,33 @@ module.exports = class EventsWatcher {
             // If no changes, then return
             return false;
         }
-        // Only "{" and "{}" (VSCode might automatically add the closing bracket, even in non template strings)
-        // trigger verification
-        if (["{", "{}"].every((token) => contentChanges[0].text !== token)) {
+        return true;
+    };
+
+    /**
+     * Determine whether or not current changes should trigger quotes switch.
+     * @param {string} addedText 
+     * @param {vscode.TextLine} line 
+     * @param {vscode.Position} changeStart 
+     * @returns {boolean}
+     */
+    shouldTurnIntoTemplateString(addedText, line, changeStart) {
+        if (addedText.length === 0) {
             return false;
         }
-        return true;
-    }
+
+        /**
+         * VSCode might automatically add a closing bracket, even in non template strings. In that case, addedText
+         * will be "{}"
+         */
+        if (["{", "{}"].some((token) => token === addedText) && line.text.charAt(changeStart.character - 1) === "$") {
+            return true;
+        }
+
+        if (/\$\{[^\}]*\}/.test(addedText)) {
+            return true;
+        }
+
+        return false;
+    };
 };
