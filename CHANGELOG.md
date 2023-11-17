@@ -2,6 +2,14 @@
 
 All notable changes to the extension will be documented in this file.
 
+## [1.1.0] - 2023-11-17
+
+-   Add revert backticks feature
+
+## [1.0.1] - 2023-10-27
+
+-   Release extension in Open VSX Registry
+
 ## [1.0.0] - 2023-07-29
 
 -   Handle pasted text
