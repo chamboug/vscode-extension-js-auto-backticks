@@ -8,7 +8,7 @@
 		"theme": "dark"
 	},
 	"publisher": "chamboug",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"repository": "https://github.com/chamboug/vscode-extension-js-auto-backticks",
 	"engines": {
 		"vscode": "^1.43.0"
