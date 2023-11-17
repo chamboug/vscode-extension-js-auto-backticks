@@ -15,13 +15,20 @@ Just start typing a regular string, the extension will transform it into a templ
 
 ## Features
 
-1. **Zero configuration**: _JavaScript Auto Backticks_ is designed to be user-friendly and requires no configuration. Once installed, it immediately starts working without any additional settings.
+1. **User-friendly**: _JavaScript Auto Backticks_ is designed to be user-friendly and requires no configuration for immediate use.
 
 1. **TypeScript Handling**: This extension is specifically designed to work seamlessly with both JavaScript and TypeScript languages.
 
 1. **Smart Quotes Recognition**: _JavaScript Auto Backticks_ is smart enough to differentiate escaped quotes within a string. It ensures that only the quotes that should be part of the template literal are converted to backticks, leaving the escaped quotes unchanged.
 
 1. **Handling Pasted Text**: This extension handles pasted text. If you paste code containing `${`, the extension will instantly convert the applicable quotes to backticks as required.
+
+## Settings
+
+| Key                                       | Description                                                                    | Default value |
+| ----------------------------------------- | ------------------------------------------------------------------------------ | ------------- |
+| js-auto-backticks.revertEnabled           | Revert to regular quotes after removing last placeholder of a template string. | true          |
+| js-auto-backticks.preferredStandardQuotes | Specifies preferred quotation marks when reverting standard string.            | auto          |
 
 ## License
 

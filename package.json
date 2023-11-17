@@ -25,7 +25,31 @@
 	],
 	"main": "./extension.js",
 	"contributes": {
-		"commands": []
+		"configuration": {
+			"title": "JavaScript Auto Backticks",
+			"properties": {
+				"js-auto-backticks.revertEnabled": {
+					"type": "boolean",
+					"default": true,
+					"description": "Revert to regular quotes after removing last placeholder of a template string."
+				},
+				"js-auto-backticks.preferredStandardQuotes": {
+					"type": "string",
+					"enum": [
+						"auto",
+						"single",
+						"double"
+					],
+					"default": "auto",
+					"enumDescriptions": [
+						"Auto detect",
+						"Single quotes",
+						"Double quotes"
+					],
+					"description": "Specifies preferred quotation marks when reverting standard string."
+				}
+			}
+		}
 	},
 	"scripts": {
 		"postversion": "git push --follow-tags",
