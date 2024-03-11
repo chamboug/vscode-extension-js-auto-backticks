@@ -8,7 +8,7 @@
         "theme": "dark"
     },
     "publisher": "chamboug",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "repository": "https://github.com/chamboug/vscode-extension-js-auto-backticks",
     "engines": {
         "vscode": "^1.43.0"
@@ -58,9 +58,9 @@
         "lintFix": "eslint src/**/*.js --fix"
     },
     "devDependencies": {
-        "@types/node": "^12.11.7",
-        "@types/vscode": "^1.43.0",
-        "babel-eslint": "^10.1.0",
+        "@types/node": "x",
+        "@types/vscode": "x",
+        "babel-eslint": "x",
         "eslint": "6.8.0"
     },
     "dependencies": {
