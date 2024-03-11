@@ -139,7 +139,11 @@ module.exports = class EventsWatcher {
      * @returns {boolean}
      */
     shouldCheckForBackticks(document, contentChanges) {
-        if (!["javascript", "typescript", "vue", "javascriptreact", "typescriptreact"].includes(document.languageId)) {
+        if (
+            !["javascript", "typescript", "vue", "svelte", "javascriptreact", "typescriptreact"].includes(
+                document.languageId
+            )
+        ) {
             return false;
         }
         if (!document.isDirty || document.isClosed) {

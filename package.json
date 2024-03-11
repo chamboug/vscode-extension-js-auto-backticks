@@ -1,69 +1,70 @@
 {
-	"name": "js-auto-backticks",
-	"displayName": "Javascript Auto Backticks",
-	"description": "Automatically converts single or double quotes to backticks when needed.",
-	"icon": "images/icon.png",
-	"galleryBanner": {
-		"color": "#CE9178",
-		"theme": "dark"
-	},
-	"publisher": "chamboug",
-	"version": "1.1.0",
-	"repository": "https://github.com/chamboug/vscode-extension-js-auto-backticks",
-	"engines": {
-		"vscode": "^1.43.0"
-	},
-	"categories": [
-		"Other"
-	],
-	"activationEvents": [
-		"onLanguage:javascript",
-		"onLanguage:typescript",
-		"onLanguage:javascriptreact",
-		"onLanguage:typescriptreact",
-		"onLanguage:vue"
-	],
-	"main": "./extension.js",
-	"contributes": {
-		"configuration": {
-			"title": "JavaScript Auto Backticks",
-			"properties": {
-				"js-auto-backticks.revertEnabled": {
-					"type": "boolean",
-					"default": true,
-					"description": "Revert to regular quotes after removing last placeholder of a template string."
-				},
-				"js-auto-backticks.preferredStandardQuotes": {
-					"type": "string",
-					"enum": [
-						"auto",
-						"single",
-						"double"
-					],
-					"default": "auto",
-					"enumDescriptions": [
-						"Auto detect",
-						"Single quotes",
-						"Double quotes"
-					],
-					"description": "Specifies preferred quotation marks when reverting standard string."
-				}
-			}
-		}
-	},
-	"scripts": {
-		"postversion": "git push --follow-tags",
-		"lint": "eslint src/**/*.js",
-		"lintFix": "eslint src/**/*.js --fix"
-	},
-	"devDependencies": {
-		"@types/node": "^12.11.7",
-		"@types/vscode": "^1.43.0",
-		"babel-eslint": "^10.1.0",
-		"eslint": "6.8.0"
-	},
-	"dependencies": {
-		"@phenomnomnominal/tsquery": "5.0.0",
-		"typescript": "4.6.4"
-	}
+    "name": "js-auto-backticks",
+    "displayName": "Javascript Auto Backticks",
+    "description": "Automatically converts single or double quotes to backticks when needed.",
+    "icon": "images/icon.png",
+    "galleryBanner": {
+        "color": "#CE9178",
+        "theme": "dark"
+    },
+    "publisher": "chamboug",
+    "version": "1.1.0",
+    "repository": "https://github.com/chamboug/vscode-extension-js-auto-backticks",
+    "engines": {
+        "vscode": "^1.43.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onLanguage:javascript",
+        "onLanguage:typescript",
+        "onLanguage:javascriptreact",
+        "onLanguage:typescriptreact",
+        "onLanguage:vue",
+        "onLanguage:svelte"
+    ],
+    "main": "./extension.js",
+    "contributes": {
+        "configuration": {
+            "title": "JavaScript Auto Backticks",
+            "properties": {
+                "js-auto-backticks.revertEnabled": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Revert to regular quotes after removing last placeholder of a template string."
+                },
+                "js-auto-backticks.preferredStandardQuotes": {
+                    "type": "string",
+                    "enum": [
+                        "auto",
+                        "single",
+                        "double"
+                    ],
+                    "default": "auto",
+                    "enumDescriptions": [
+                        "Auto detect",
+                        "Single quotes",
+                        "Double quotes"
+                    ],
+                    "description": "Specifies preferred quotation marks when reverting standard string."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "postversion": "git push --follow-tags",
+        "lint": "eslint src/**/*.js",
+        "lintFix": "eslint src/**/*.js --fix"
+    },
+    "devDependencies": {
+        "@types/node": "^12.11.7",
+        "@types/vscode": "^1.43.0",
+        "babel-eslint": "^10.1.0",
+        "eslint": "6.8.0"
+    },
+    "dependencies": {
+        "@phenomnomnominal/tsquery": "5.0.0",
+        "typescript": "4.6.4"
+    }
 }
