@@ -163,7 +163,7 @@ module.exports = class EventsWatcher {
      * @returns {boolean}
      */
     shouldRevertToQuotes(addedText) {
-        return this.getUserPreferences().revertEnabled && addedText.length === 0;
+        return this.getUserPreferences().enableRevert && addedText.length === 0;
     }
 
     /**
@@ -229,7 +229,7 @@ module.exports = class EventsWatcher {
 
     /**
      * Get user preferences
-     * @returns {{revertEnabled: boolean, preferredStandardQuotes: "auto" | "single" | "double"}}
+     * @returns {{enableRevert: boolean, preferredStandardQuotes: "auto" | "single" | "double"}}
      */
     getUserPreferences() {
         return vscode.workspace.getConfiguration("js-auto-backticks");

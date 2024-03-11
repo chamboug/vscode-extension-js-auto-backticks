@@ -13,6 +13,8 @@ Just start typing a regular string, the extension will transform it into a templ
 
 ![alt text](images/demo.gif "Automatic replace")
 
+> ⚠️ Breaking Change: Since version 1.2.0, the `revertEnabled` setting has been renamed to `enableRevert`. Additionally, its default value has been changed from `true` to `false`. Please ensure to update your configuration accordingly.
+
 ## Features
 
 1. **User-friendly**: _JavaScript Auto Backticks_ is designed to be user-friendly and requires no configuration for immediate use.
@@ -27,7 +29,7 @@ Just start typing a regular string, the extension will transform it into a templ
 
 | Key                                       | Description                                                                    | Default value |
 | ----------------------------------------- | ------------------------------------------------------------------------------ | ------------- |
-| js-auto-backticks.revertEnabled           | Revert to regular quotes after removing last placeholder of a template string. | true          |
+| js-auto-backticks.enableRevert            | Revert to regular quotes after removing last placeholder of a template string. | false         |
 | js-auto-backticks.preferredStandardQuotes | Specifies preferred quotation marks when reverting standard string.            | auto          |
 
 ## License

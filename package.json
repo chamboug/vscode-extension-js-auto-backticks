@@ -29,9 +29,9 @@
         "configuration": {
             "title": "JavaScript Auto Backticks",
             "properties": {
-                "js-auto-backticks.revertEnabled": {
+                "js-auto-backticks.enableRevert": {
                     "type": "boolean",
-                    "default": true,
+                    "default": false,
                     "description": "Revert to regular quotes after removing last placeholder of a template string."
                 },
                 "js-auto-backticks.preferredStandardQuotes": {
