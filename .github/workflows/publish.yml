@@ -21,7 +21,11 @@ jobs:
               uses: HaaLeo/publish-vscode-extension@v1
               with:
                   pat: ${{ secrets.OPEN_VSX_TOKEN }}
+            # Azure DevOps retires global Personal Access Tokens on 2026-12-01, and the Marketplace
+            # does not let publishers set up its replacement (trusted publishing with `vsce publish --oidc`) yet.
+            # Until it does, Marketplace releases are uploaded by hand, so this step may fail without failing the release.
             - name: Publish to Visual Studio Marketplace
+              continue-on-error: true
               uses: HaaLeo/publish-vscode-extension@v1
               with:
                   pat: ${{ secrets.VS_MARKETPLACE_TOKEN }}
