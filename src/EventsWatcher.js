@@ -1,5 +1,6 @@
 const vscode = require("vscode");
 const { tsquery } = require("@phenomnomnominal/tsquery");
+const { ScriptKind } = require("typescript");
 
 module.exports = class EventsWatcher {
     constructor(context) {
@@ -26,7 +27,7 @@ module.exports = class EventsWatcher {
 
                 try {
                     if (this.shouldRevertToQuotes(addedText)) {
-                        const ast = tsquery.ast(line.text);
+                        const ast = this.parseLine(line.text, event.document.languageId);
                         // Template Strings that contains ${} elements are marked as TemplateExpression
                         // Otherwise, they are marked as NoSubstitutionTemplateLiteral
                         const stringShouldRevertToQuotes = !tsquery(
@@ -73,7 +74,7 @@ module.exports = class EventsWatcher {
                             });
                         }
                     } else if (this.shouldTurnIntoTemplateString(addedText, line, changeStart)) {
-                        const ast = tsquery.ast(line.text);
+                        const ast = this.parseLine(line.text, event.document.languageId);
                         const wrappingString = tsquery(
                             ast,
                             `StringLiteral[pos<${changeStart.character}][end>${changeStart.character}]`
@@ -191,6 +192,19 @@ module.exports = class EventsWatcher {
         }
 
         return false;
+    }
+
+    /**
+     * Parse a line of code into an AST.
+     * @param {string} lineText
+     * @param {string} languageId
+     * @returns {import("typescript").SourceFile}
+     */
+    parseLine(lineText, languageId) {
+        if (["javascriptreact", "typescriptreact"].includes(languageId)) {
+            return tsquery.ast(lineText, "", ScriptKind.TSX);
+        }
+        return tsquery.ast(lineText);
     }
 
     /**

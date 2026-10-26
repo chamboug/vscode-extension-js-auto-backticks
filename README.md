@@ -1,9 +1,8 @@
 # JavaScript Auto Backticks
 
-![](https://img.shields.io/visual-studio-marketplace/i/chamboug.js-auto-backticks)
-![](https://img.shields.io/visual-studio-marketplace/r/chamboug.js-auto-backticks)
-![](https://img.shields.io/visual-studio-marketplace/last-updated/chamboug.js-auto-backticks)
-![](https://img.shields.io/visual-studio-marketplace/v/chamboug.js-auto-backticks)
+![](https://vsmarketplacebadges.dev/installs-short/chamboug.js-auto-backticks.svg)
+![](https://vsmarketplacebadges.dev/rating-short/chamboug.js-auto-backticks.svg)
+![](https://vsmarketplacebadges.dev/version-short/chamboug.js-auto-backticks.svg)
 
 ## Overview
 
